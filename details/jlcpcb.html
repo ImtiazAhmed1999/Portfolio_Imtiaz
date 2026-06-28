@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contributing Writer (Electronics) — JLCPCB — Imtiaz Ahmed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F3F8; --paper-deep:#EDE9F3; --ink:#1C1730; --ink-soft:#534C6B;
+  --violet:#5B3E96; --violet-soft:#EFE9FA; --amber:#E8A33D; --teal:#1F6F6E;
+  --royal:#3A4FA0; --graphite:#6B6878; --line:#DCD5E8; --radius:2px;
+  --shadow-sm:0 2px 10px rgba(28,23,48,0.06); --shadow-md:0 10px 30px rgba(28,23,48,0.10);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  background:
+    repeating-linear-gradient(0deg, rgba(91,62,150,0.045) 0px, rgba(91,62,150,0.045) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(91,62,150,0.045) 0px, rgba(91,62,150,0.045) 1px, transparent 1px, transparent 40px),
+    var(--paper);
+  color:var(--ink); font-family:'Inter',sans-serif; font-size:16px; line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.display{font-family:'Fraunces',serif;}
+.mono{font-family:'IBM Plex Mono',monospace;}
+a{color:inherit; text-decoration:none;}
+::selection{background:var(--violet); color:#fff;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+/* ---------- NAV / BREADCRUMB ---------- */
+header.dnav{position:sticky; top:0; z-index:20; background:rgba(245,243,248,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+.dnav-inner{max-width:1080px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;}
+.back-link{font-family:'IBM Plex Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); display:flex; align-items:center; gap:8px; transition:color .2s ease;}
+.back-link:hover{color:var(--violet);}
+.dnav-name{font-family:'Fraunces',serif; font-weight:600; font-size:15px;}
+.dnav-name span{color:var(--violet);}
+.breadcrumb{
+  font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ink-soft);
+  letter-spacing:0.03em; margin:36px 0 22px; display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+}
+.breadcrumb .sep{color:var(--line);}
+.breadcrumb .current{color:var(--violet);}
+
+main{padding:0 0 110px;}
+
+/* ---------- HEADER BLOCK ---------- */
+.eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.12em; color:var(--ink-soft); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+.eyebrow .tag{display:inline-block; width:8px; height:8px; border-radius:1px; flex-shrink:0;}
+.eyebrow .rule{flex:1; height:1px; background:var(--line);}
+.title-row{display:flex; align-items:flex-start; justify-content:space-between; gap:24px; flex-wrap:wrap;}
+h1.title{font-size:clamp(28px,4.2vw,42px); font-weight:600; line-height:1.14; max-width:680px;}
+.status-badge{
+  display:inline-flex; align-items:center; gap:8px; flex-shrink:0;
+  font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em;
+  padding:7px 13px 7px 11px; border-radius:99px; border:1px solid var(--line); background:#fff; margin-top:4px;
+}
+.status-badge .dot{width:7px; height:7px; border-radius:50%;}
+.status-badge.ongoing .dot{background:var(--teal); animation:pulseDot 2.2s ease-out infinite;}
+.status-badge.completed .dot{background:var(--graphite);}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(31,111,110,0.45);} 70%{box-shadow:0 0 0 7px rgba(31,111,110,0);} 100%{box-shadow:0 0 0 0 rgba(31,111,110,0);}
+}
+.abstract{
+  font-family:'Fraunces',serif; font-style:italic; font-size:18px; line-height:1.6; color:var(--ink-soft);
+  border-left:2.5px solid var(--violet); padding:4px 0 4px 20px; margin:26px 0 0; max-width:760px;
+}
+
+/* ---------- LAYOUT ---------- */
+.detail-grid{display:grid; grid-template-columns:1.3fr 0.85fr; gap:56px; margin-top:46px; align-items:start;}
+
+/* ---------- INFO PANEL (datasheet) ---------- */
+.info-panel{border:1px solid var(--line); border-radius:6px; background:#fff; overflow:hidden; margin-bottom:40px;}
+.info-row{display:grid; grid-template-columns:140px 1fr; gap:14px; padding:13px 18px; border-bottom:1px solid var(--line);}
+.info-row:last-child{border-bottom:none;}
+.info-row .lab{font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--graphite); padding-top:1px;}
+.info-row .val{font-size:14.5px; color:var(--ink);}
+
+/* ---------- BODY SECTIONS ---------- */
+.section-block{margin-bottom:40px;}
+.section-block:last-child{margin-bottom:0;}
+.section-num{
+  font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--violet); letter-spacing:0.1em; text-transform:uppercase;
+  display:flex; align-items:center; gap:10px; margin-bottom:16px;
+}
+.section-num .n{
+  width:22px; height:22px; border-radius:50%; border:1px solid var(--violet); color:var(--violet);
+  display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;
+}
+.body-copy p{font-size:15.5px; color:var(--ink-soft); max-width:640px; margin-bottom:14px;}
+.body-copy p:last-child{margin-bottom:0;}
+.highlights{list-style:none; max-width:660px;}
+.highlights li{
+  position:relative; padding-left:22px; margin-bottom:12px; font-size:15.5px; color:var(--ink-soft);
+}
+.highlights li:last-child{margin-bottom:0;}
+.highlights li::before{
+  content:''; position:absolute; left:0; top:7px; width:7px; height:7px; background:var(--amber);
+}
+.tool-chips{display:flex; flex-wrap:wrap; gap:9px;}
+.tool-chip{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; padding:7px 13px;
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff; color:var(--ink);
+}
+.related-chips{display:flex; flex-wrap:wrap; gap:10px;}
+.related-chip{
+  font-family:'IBM Plex Mono',monospace; font-size:12.5px; padding:9px 14px;
+  border:1px solid var(--line); border-radius:var(--radius); background:#fff;
+  transition:border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.related-chip:hover{border-color:var(--violet); background:var(--violet-soft); transform:translateY(-2px);}
+
+/* ---------- FIGURE SIDEBAR ---------- */
+.fig-aside{position:sticky; top:96px; display:flex; flex-direction:column; gap:26px;}
+.fig-card{border:1px solid var(--line); border-radius:6px; background:#fff; overflow:hidden; box-shadow:var(--shadow-sm);}
+.fig-placeholder{
+  border-bottom:1px solid var(--line); background:var(--paper-deep);
+  aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:10px; color:var(--graphite); padding:20px; text-align:center;
+}
+.fig-placeholder svg{opacity:0.5;}
+.fig-placeholder .ph-label{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.03em;}
+.fig-caption{padding:13px 16px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); line-height:1.5;}
+.fig-caption b{color:var(--ink); font-weight:500;}
+
+/* ---------- CTA / FOOTER ---------- */
+.cta-row{margin-top:56px; padding-top:28px; border-top:1px solid var(--line); display:flex; gap:14px; flex-wrap:wrap;}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 20px; font-family:'IBM Plex Mono',monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; border-radius:var(--radius); border:1px solid var(--ink); transition:background .2s ease,color .2s ease,transform .15s ease,box-shadow .2s ease;}
+.btn.primary{background:var(--ink); color:var(--paper);}
+.btn.primary:hover{background:var(--violet); border-color:var(--violet); transform:translateY(-2px); box-shadow:var(--shadow-md);}
+.btn.ghost{border-color:var(--line); color:var(--ink);}
+.btn.ghost:hover{border-color:var(--ink); transform:translateY(-2px); box-shadow:var(--shadow-sm);}
+footer{border-top:1px solid var(--line); padding:30px 0; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--ink-soft); margin-top:40px;}
+
+@media (max-width:880px){
+  .detail-grid{grid-template-columns:1fr; gap:36px;}
+  .fig-aside{position:static;}
+}
+</style>
+</head>
+<body>
+<header class="dnav">
+  <div class="dnav-inner">
+    <a class="back-link" href="../index.html#research">&larr; Back to portfolio</a>
+    <span class="dnav-name">IMTIAZ<span>.</span>AHMED</span>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="../index.html">Portfolio</a><span class="sep">/</span>
+      <a href="../index.html#research">Research & Experience</a><span class="sep">/</span>
+      <span class="current">Contributing Writer (Electronics) — JLCPCB</span>
+    </div>
+
+    <div class="eyebrow">
+      <span class="tag" style="background:var(--teal)"></span>
+      Technical Writing
+      <span class="rule"></span>
+    </div>
+
+    <div class="title-row">
+      <h1 class="title display">Contributing Writer (Electronics) — JLCPCB</h1>
+      <span class="status-badge ongoing"><span class="dot"></span>Ongoing</span>
+    </div>
+
+    <p class="abstract">Writing technical articles on PCB manufacturing and electronics design for JLCPCB's blog.</p>
+
+    <div class="detail-grid">
+      <div class="detail-main">
+        <div class="info-panel"><div class="info-row"><div class="lab">Period</div><div class="val">2025 – 2026</div></div><div class="info-row"><div class="lab">Publication</div><div class="val">JLCPCB Blog</div></div><div class="info-row"><div class="lab">Role</div><div class="val">Contributing Writer</div></div><div class="info-row"><div class="lab">Focus Area</div><div class="val">PCB manufacturing &amp; design</div></div></div>
+        <div class="section-block"><div class="section-num"><span class="n">01</span>Overview</div><div class="body-copy"><p> JLCPCB is a global leader in rapid PCB prototyping and automated SMT assembly that revolutionized hardware manufacturing by making quick-turn, low-cost fabrication accessible to engineers worldwide. Operating at the intersection of factory capabilities and digital design, you leveraged hands-on electronics experience to write high-impact technical articles for their blog. Your work translated complex manufacturing realities—such as DFM (Design for Manufacturing) constraints, thermal management, and reflow soldering requirements—into clear, practical insights that helped fellow engineers optimize their layouts for flawless, first-time-right production.</p></div></div><div class="section-block"><div class="section-num"><span class="n">02</span>Tools &amp; Stack</div><div class="tool-chips"><span class="tool-chip">EasyEDA</span><span class="tool-chip">PCB Manufacturing</span></div></div>
+
+        
+
+        <div class="cta-row">
+          <a class="btn primary" href="../index.html#research">&larr; Back to portfolio</a>
+          <a class="btn ghost" href="mailto:imti.ahmed19@gmail.com">Ask about this</a>
+        </div>
+      </div>
+
+
+</div>
+    </div>
+  </div>
+</main>
+<footer>Imtiaz Ahmed — Electrical &amp; Electronic Engineering · Dhaka, Bangladesh</footer>
+</body>
+</html>

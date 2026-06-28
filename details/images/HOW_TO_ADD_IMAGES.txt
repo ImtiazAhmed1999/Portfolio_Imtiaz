@@ -1,0 +1,57 @@
+HOW TO ADD YOUR OWN IMAGES
+===========================
+
+No editing needed. Just save each photo using the EXACT filename listed
+below (lowercase, matching exactly), and place it inside this folder:
+
+    details/images/
+
+Once a file with the right name is in this folder, refresh the matching
+page in your browser and the photo will replace the placeholder
+automatically. If a file is missing, the page just keeps showing the
+placeholder box -- nothing breaks.
+
+Recommended: JPG, under ~2MB, roughly landscape or 4:3.
+
+----------------------------------------------------------------------
+
+
+Research Assistant — Tandem Perovskite Solar Cells
+  ra-2025-2026-01.jpg          -> Lab / simulation setup
+  ra-2025-2026-02.jpg          -> Cell architecture or result plot
+
+Research Assistant — Embedded Systems & IoT
+  ra-2024-2025-01.jpg          -> Datalogger hardware / PCB
+  ra-2024-2025-02.jpg          -> Data acquisition setup
+
+Research Assistant — Motor Fault Analysis & Hybrid Energy
+  ra-2023-2024-01.jpg          -> Motor test / sensor setup
+  ra-2023-2024-02.jpg          -> Hybrid energy system diagram
+
+Team Leader — AutoMama
+  automama-01.jpg              -> Team / vehicle photo
+  automama-02.jpg              -> Build or test footage
+
+Vice President — RoboSUST
+  robosust-01.jpg              -> Workshop / event photo
+  robosust-02.jpg              -> Competition photo
+
+Contributing Writer (Electronics) — JLCPCB
+  jlcpcb-01.jpg                -> Article screenshot
+  jlcpcb-02.jpg                -> PCB design example
+
+Induction Motor Fault Analysis
+  project-induction-motor-01.jpg -> Test rig / sensor setup
+  project-induction-motor-02.jpg -> Model output / confusion matrix
+
+Renewable Energy System for Grid Integration
+  project-renewable-grid-01.jpg -> System diagram
+  project-renewable-grid-02.jpg -> Monitoring dashboard
+
+IoT-Driven Smart Workplace Ecosystem
+  project-iot-workplace-01.jpg -> System / hardware photo
+  project-iot-workplace-02.jpg -> App interface
+
+Custom ESP32-S3 Datalogger Board
+  project-esp32-datalogger-01.jpg -> PCB layout
+  project-esp32-datalogger-02.jpg -> Assembled board
